@@ -35,13 +35,6 @@ The package includes functions which can complete the following tasks:
 - `missing_imputer`:This function aims to detect missing values in the numeric data frame and using strategies including drop, mean or median to drop missing values or to replace them with the mean or median of other values in the same column.
 - `get_correlated_features`:This function will get pairs of features which have correlation above a threshold value. We can specify if we want to check only the magniture of correlation value or we also want to consider sign (positive/ negative).
 
-## Installation
-
-You can install the development version from
-[GitHub](https://github.com/) with:
-
-    # install.packages("devtools")
-    devtools::install_github("https://github.com/UBC-MDS/nedahelpeR.git")
 
 ## Similar Work
 
