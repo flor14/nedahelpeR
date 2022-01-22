@@ -40,14 +40,6 @@ The package includes functions which can complete the following tasks:
     want to check only the magniture of correlation value or we also
     want to consider sign (positive/ negative).
 
-## Installation
-
-You can install the development version from
-[GitHub](https://github.com/) with:
-
-    # install.packages("devtools")
-    devtools::install_github("https://github.com/UBC-MDS/nedahelpeR.git")
-
 ## Similar Work
 
 In the R open-source ecosystem, there exists some useful packages that
