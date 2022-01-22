@@ -1,10 +1,23 @@
 Package: nedahelpeR
-Title: What the Package Does (One Line, Title Case)
+Title: Streamline Exploratory Data Analysis
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+    c(
+    person(given = "Jiwei", 
+    family = "Hu",
+    email = "hjw0703@student.ubc.ca", 
+    role = c("aut", "cre")),
+    person(given = "Anupriya",
+    family = "Srivastava", 
+    role = c("aut")),
+    person(given = "Michelle",
+    family = "Wang", 
+    role = c("aut")),
+    person(given = "Samuel",
+    family = "Quist", 
+    role = c("aut"))
+    )
+Description: Data scientists often spend a lot of time preprocessing data to extract useful parts for their analysis.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
