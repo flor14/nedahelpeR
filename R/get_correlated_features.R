@@ -12,7 +12,7 @@
 #' X <- data.frame('age'=c(23, 13, 7, 45), 
 #'                 'height'=c(1.65, 1.23, 0.96, 1.55)
 #'                 'income'=c(20, 120, 120, 25))
-#' flag_outliers(X, threshold=0.7)
+#' get_correlated_features(X, threshold=0.7)
 #'
 get_correlated_features <- function(X, threshold, consider_sign=FALSE) {
 
