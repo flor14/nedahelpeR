@@ -10,6 +10,37 @@
 #' df <- data.frame('col1'=c(1,2,3), 'col2'=c(1,2,3))
 #' flag_outliers(df, threshold=0.2)
 #'
+#'
+library(purrr)
+library(dplyr)
+
 flag_outliers <- function(df, threshold=0.1) {
 
+    # Exception handling and error-checking
+    if (!is.data.frame(df)) {
+      stop("df argument must be type dataframe")
+    }
+
+    if (threshold<0 | threshold>1) {
+      stop("threshold argument must be a numeric value between 0 and 1")
+    }
+
+
+    # Main function body
+    percentage_outliers <- function(x) {
+      Q1 <- quantile(x, 0.25)
+      Q3 <- quantile(x, 0.75)
+      IQR <- Q3-Q1
+      lower <- Q1 - (1.5 * IQR)
+      upper <- Q3 + (1.5 * IQR)
+
+      # sum elements where x are below lower, or above upper
+      sum(x < lower | x > upper)/ length(x)
+    }
+
+    all_df <- map_df(df, percentage_outliers)
+    all_df[which(all_df>threshold)]
 }
+
+
+
