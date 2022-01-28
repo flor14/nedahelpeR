@@ -16,4 +16,12 @@
 #'
 get_correlated_features <- function(X, threshold, consider_sign=FALSE) {
 
+    #Exception handling for input datatypes
+    if (!is.data.frame(X)) {
+        stop("Feature set (X) should be a dataframe!")
+    }
+    if (typeof(threshold) != "double") {
+        stop("Threshold value should be a number!")
+    }
 }
+
