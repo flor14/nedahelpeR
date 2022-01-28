@@ -27,6 +27,32 @@ The package includes functions which can complete the following tasks:
 - Deal with missing values
 - Check for correlation between features
 
+## Installation
+
+You can install the development version from
+[GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("https://github.com/UBC-MDS/nedahelpeR.git")
+```
+
+## Usage
+
+This is a basic example which shows you how to use the package:
+
+``` r
+library(nedahelpeR)
+df <- data.frame('col1'= c(-100,-200, 1,2,3,4,5,6,7,8,9,NA, 1000), 
+                'col2'= c(1,2,3,4,5,6,7,8,9,10,11,12,13),
+                'col3'= c(-50, 1,2,3,4,5,6,7,8,9,10,11,50000))
+overview(df, quiet=False)
+missing_imputer(df, method="median")
+flag_outliers(df, threshold=0.2)
+get_correlated_features(df, threshold=0.7)
+
+```
+
 
 ## Function descriptions
 
