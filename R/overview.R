@@ -2,8 +2,6 @@
 #' returns a `tibble` of descriptive statistical values.
 #'
 #' @param input A dataframe or tibble containing numeric data
-#' @param verbose Optional boolean value for giving more
-#'    information (histogram, estimated distribution), default is FALSE
 #' @param quiet Optional boolean value for creating global variables
 #'    for use elsewhere in the environment, default is FALSE
 #'
@@ -11,8 +9,39 @@
 #' @export
 #'
 #' @examples
-#' >>> overview(tibbleX, verbose=TRUE, quiet=FALSE)
+#' >>> overview(tibbleX, quiet=FALSE)
 #'
-overview <- function(input, verbose=FALSE, quiet=FALSE) {
-
+overview <- function(input, quiet=FALSE) {
+    if (!is.data.frame(input)) {
+        stop("Data type must be data.frame or tibble")
+    }
+    
+    if (!ncol(input |> dplyr::select_if(is.numeric)) == ncol(input)){
+        stop("Input data must only be numeric")
+    }
+    
+    if (!is.logical(quiet)){
+        stop("Parameter `quiet` must be logical type")
+    }
+    means <- c()
+    medians <- c()
+    stds <- c()
+    variances <- c()
+    for (col in colnames(input)){
+        means <- c(means,mean_=map_dbl(input[col],.f=mean))
+        medians <- c(medians,median_=map_dbl(input[col],.f=median))
+        stds <- c(stds,std_=map_dbl(input[col],.f=sd))
+        variances <- c(variances,var_=map_dbl(input[col],.f=var))
+    }
+    df <- tibble('mean'=means,
+                'median'=medians,
+                'standard dev'=stds,
+                'variance'=variances)
+    row.names(df) <- colnames(input);
+    if(quiet){
+        return(invisible(df))
+    }
+    else{
+        return(df)
+    }
 }
