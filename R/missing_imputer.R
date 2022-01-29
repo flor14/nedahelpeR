@@ -1,5 +1,6 @@
 #' Return the imputed version of data based on the methods selected
-#' @importFrom stats median quantile sd var
+#' @importFrom stats median quantile sd var cor na.omit
+#' @importFrom utils read.table
 #' @import tibble
 #' @param data The raw data with missing values
 #' @param method The method used to impute the missing values
@@ -9,6 +10,7 @@
 #' @export
 #'
 #' @examples
+#' data <- data.frame('col1'=c(1,NA,3), 'col2'=c(1,2,3))
 #' missing_imputer(data , method = "median")
 #'
 #'

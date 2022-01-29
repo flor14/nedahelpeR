@@ -33,5 +33,7 @@ Imports:
     dplyr,
     tibble,
     data.table,
-    tidyr
+    tidyr,
+    stats,
+    utils
 VignetteBuilder: knitr
