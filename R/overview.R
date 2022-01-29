@@ -9,7 +9,7 @@
 #' @export
 #'
 #' @examples
-#' df <- tibble('col1'=c(1,2,3), 'col2'=c(2,3,6))
+#' df <- data.frame('col1'=c(1,2,3), 'col2'=c(2,3,6))
 #' overview(df, quiet=FALSE)
 #'
 overview <- function(input, quiet=FALSE) {
