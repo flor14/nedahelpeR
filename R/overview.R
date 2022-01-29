@@ -5,7 +5,7 @@
 #' @param quiet Optional boolean value for creating global variables
 #'    for use elsewhere in the environment, default is FALSE
 #'
-#' @return Tibble containing all calculated values
+#' @return Data.frame containing all calculated values
 #' @export
 #'
 #' @examples
@@ -33,11 +33,11 @@ overview <- function(input, quiet=FALSE) {
         stds <- c(stds,std_=map_dbl(input[col],.f=sd))
         variances <- c(variances,var_=map_dbl(input[col],.f=var))
     }
-    df <- tibble('mean'=means,
+    df <- data.frame('mean'=means,
                 'median'=medians,
                 'standard dev'=stds,
                 'variance'=variances)
-    row.names(df) <- colnames(input);
+    rownames(df) <- colnames(input);
     if(quiet){
         return(invisible(df))
     }
