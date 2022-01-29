@@ -1,9 +1,12 @@
 #' Highlight variables containing certain threshold of outliers
 #'
+#' @import purrr
+#'
 #' @param df A dataframe or tibble containing numeric variables
 #' @param threshold Threshold (minimum) required to flag variables with outliers
 #'
 #' @return Tibble containing name of variables and proportion of outliers contained
+#'
 #' @export
 #'
 #' @examples
@@ -11,8 +14,6 @@
 #' flag_outliers(df, threshold=0.2)
 #'
 #'
-library(purrr)
-library(dplyr)
 
 flag_outliers <- function(df, threshold=0.1) {
 
@@ -41,7 +42,7 @@ flag_outliers <- function(df, threshold=0.1) {
       sum(x < lower | x > upper)/ length(x)
     }
 
-    all_df <- map_df(df, percentage_outliers)
+    all_df <- purrr::map_df(df, percentage_outliers)
     all_df[which(all_df>threshold)]
 
 }
