@@ -39,7 +39,9 @@ get_correlated_features <- function(x, threshold, consider_sign=FALSE) {
         for(feat_2 in features) {
             corr_val_abs <- 0
                 # calculate pair-wise correlation
-                corr_val <- round(cor(x[feat_1], x[feat_2]), 2)
+                sub_df <- x[c(feat_1, feat_2)] |>
+                    na.omit()
+                corr_val <- round(cor(sub_df[feat_1], sub_df[feat_2]), 2)
 
             ifelse(consider_sign == FALSE,
                 corr_val_abs <- abs(corr_val),
