@@ -18,7 +18,7 @@ test_that("Non numeric input is flagged", {
 
 # Test output accuracy
 test_that("Output yields correct values", {
-    expect_equal(round(sum(overview(df_nn)$mean),2), 155.1)
-    expect_equal(nrow(overview(df_nn)),ncol(df_nn))
-    expect_equal(round(sum(overview(df_nn)[3]),2), 303.53)
+    expect_equal(round(sum(overview(df)$mean),2), 155.1)
+    expect_equal(nrow(overview(df)),ncol(df))
+    expect_equal(round(sum(overview(df)[3]),2), 303.53)
 })
