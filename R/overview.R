@@ -1,5 +1,5 @@
 #' Gives a statistical overview of the input data,
-#' returns a `tibble` of descriptive statistical values.
+#' returns a `data.frame` of descriptive statistical values.
 #'
 #' @param input A dataframe or tibble containing numeric data
 #' @param quiet Optional boolean value for creating global variables
@@ -9,7 +9,8 @@
 #' @export
 #'
 #' @examples
-#' >>> overview(tibbleX, quiet=FALSE)
+#' df <- tibble('col1'=c(1,2,3), 'col2'=c(2,3,6))
+#' overview(df, quiet=FALSE)
 #'
 overview <- function(input, quiet=FALSE) {
     if (!is.data.frame(input)) {
