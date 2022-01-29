@@ -11,9 +11,11 @@
 #' @return DataFrame Tibble containing containing feature1, feature2,
 #'                and corresponding correlation.
 #'
+#' @export
+#'
 #' @examples
 #' x <- data.frame('age'=c(23, 13, 7, 45),
-#'                 'height'=c(1.65, 1.23, 0.96, 1.55)
+#'                 'height'=c(1.65, 1.23, 0.96, 1.55),
 #'                 'income'=c(20, 120, 120, 25))
 #' get_correlated_features(x, threshold=0.7)
 #'
