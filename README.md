@@ -37,7 +37,8 @@ This is a basic example which shows you how to use the package:
 library(nedahelpeR)
 df <- data.frame('col1'= c(-100,-200, 1,2,3,4,5,6,7,8,9,NA, 1000), 
                 'col2'= c(1,2,3,4,5,6,7,8,9,10,11,12,13),
-                'col3'= c(-50, 1,2,3,4,5,6,7,8,9,10,11,50000))
+                'col3'= c(-50, 1,2,3,4,5,6,7,8,9,10,11,50000),
+                'col4'= c(-100,-200, 1,2,3,4,5,6,7,8,9,10, 1000))
 overview(df, quiet=False)
 missing_imputer(df, method="median")
 flag_outliers(df, threshold=0.2)
