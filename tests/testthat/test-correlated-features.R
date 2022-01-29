@@ -1,5 +1,5 @@
 # Test dataset
-X <- data.frame('age'=c(23, 13, 7, 45), 
+x <- data.frame('age'=c(23, 13, 7, 45), 
                 'height'=c(1.65, 1.23, 0.96, 1.55), 
                 'income'=c(20, 120, 120, 25))
 
@@ -10,10 +10,10 @@ test_that("Input datatype must be of type dataframe!", {
 })
 
 test_that("Threshold must be a number!", {
-  expect_error(get_correlated_features(X, threshold="abc"))
+  expect_error(get_correlated_features(x, threshold="abc"))
 })
 
 # Testing output accuracy
 test_that("Output should return 6 rows!", {
-  expect_equal(nrow(get_correlated_features(X, threshold = 0.7)), 6)
+  expect_equal(nrow(get_correlated_features(x, threshold = 0.7)), 6)
 })
