@@ -3,6 +3,7 @@
 export(flag_outliers)
 export(missing_imputer)
 export(overview)
+export(get_correlated_features)
 import(purrr)
 import(tibble)
 importFrom(stats,median)
