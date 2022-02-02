@@ -17,6 +17,9 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/UBC-MDS/nedahelpeR/workflows/R-CMD-check/badge.svg)](https://github.com/UBC-MDS/nedahelpeR/actions)
+
+[![codecov](https://codecov.io/gh/UBC-MDS/nedahelpeR/branch/master/graph/badge.svg?token=S0j0YXOtij)](https://codecov.io/gh/UBC-MDS/nedahelpeR)
+
 <!-- badges: end -->
 
 The goal of nedahelpeR is to simplify some common and repetitive tasks during EDA and data preprocessing for data analysts, as well as add value to their workflow by presenting some useful insights in a quick manner (just calling our functions), such as displaying highly-correlated variables and outliers. 
