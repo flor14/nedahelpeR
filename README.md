@@ -6,6 +6,9 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/UBC-MDS/nedahelpeR/workflows/R-CMD-check/badge.svg)](https://github.com/UBC-MDS/nedahelpeR/actions)
+
+[![codecov](https://codecov.io/gh/UBC-MDS/nedahelpeR/branch/master/graph/badge.svg?token=S0j0YXOtij)](https://codecov.io/gh/UBC-MDS/nedahelpeR)
+
 <!-- badges: end -->
 
 The goal of nedahelpeR is to simplify some common and repetitive tasks
