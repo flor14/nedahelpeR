@@ -26,7 +26,8 @@ RoxygenNote: 7.1.1
 Suggests: 
     knitr,
     rmarkdown,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    covr
 Config/testthat/edition: 3
 Imports: 
     purrr,
@@ -37,4 +38,3 @@ Imports:
     stats,
     utils
 VignetteBuilder: knitr
-    covr
