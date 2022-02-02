@@ -37,3 +37,4 @@ Imports:
     stats,
     utils
 VignetteBuilder: knitr
+    covr
