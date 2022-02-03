@@ -18,7 +18,7 @@ overview <- function(input, quiet=FALSE) {
     }
 
     num_col <- dplyr::select_if(input, is.numeric)
-    if (!ncol(num_col)) == ncol(input)){
+    if (!ncol(num_col) == ncol(input)){
         stop("Input data must only be numeric")
     }
     
