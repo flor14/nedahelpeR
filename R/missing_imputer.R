@@ -24,7 +24,7 @@ missing_imputer <- function(data, method = "mean") {
   }
 
   # check if all the dataframe elements are numeric
-  num_data <-  data |> dplyr::select_if(is.numeric)
+  num_data <-  dplyr::select_if(data, is.numeric)
   if (!ncol(data) == ncol(num_data)) {
     stop("Some of the columns in the data are not numeric")
   }
