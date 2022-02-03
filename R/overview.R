@@ -16,8 +16,9 @@ overview <- function(input, quiet=FALSE) {
     if (!is.data.frame(input)) {
         stop("Data type must be data.frame or tibble")
     }
-    
-    if (!ncol(input |> dplyr::select_if(is.numeric)) == ncol(input)){
+
+    num_col <- dplyr::select_if(input, is.numeric)
+    if (!ncol(num_col) == ncol(input)){
         stop("Input data must only be numeric")
     }
     
