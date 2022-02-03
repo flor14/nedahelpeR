@@ -1,0 +1,87 @@
+---
+title: "nedahelpeR-vignette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{nedahelpeR-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(nedahelpeR)
+```
+
+# Introduction to nedahelpeR
+
+The goal of nedahelpeR is to simplify some common and repetitive tasks during EDA and data preprocessing for data analysts, as well as add value to their workflow by presenting some useful insights in a quick manner (just calling our functions), such as displaying highly-correlated variables and outliers. 
+
+The package includes functions which can complete the following tasks:
+
+- Handle missing values
+- Display some useful statistics
+- Detect outliers
+- Check for correlation between features
+
+
+
+## Data
+
+This is a toy data to show you how to use the package:
+
+``` {r data}
+library(nedahelpeR)
+df <- data.frame('col1'= c(-100,-200, 1,2,3,4,5,6,7,8,9,NA, 1000), 
+                'col2'= c(1,2,3,4,5,6,7,8,9,10,11,12,13),
+                'col3'= c(-50, 1,2,3,4,5,6,7,8,9,10,11,50000))
+df
+
+```
+
+
+## Handle Missing Values with `missing_imputer()`
+
+`missing_imputer()` aims to detect missing values in the numeric data frame and using strategies including drop, mean or median to drop missing values or to replace them with the mean or median of other values in the same column.
+For example, we can impute the missing value in the first column with the median of other non-NA values in the same column.
+
+```{r missing_impute}
+df <- missing_imputer(df, method="median")
+df
+```
+
+
+## Display common statistical values with `overview()`
+`overview()` calculates common descriptive statistical values of in the input data. Users can choose the extent of information that is returned and have the option to use the function as a means to create statistical variables to be used elsewhere in the environment.
+
+```{r overview}
+overview(df, quiet=FALSE)
+
+```
+
+## Detect outliers with `flag_outliers()`
+`flag_outliers()` helps to display numeric variables which contain outliers that exceed a certain user-specified threshold percentage, using the interquartile range method. Users can then take note of these variables with high percentage of outliers and decide what to do with the variable(s).
+
+```{r flag_outliers}
+flag_outliers(df, threshold=0.2)
+
+```
+
+## Check for correlation between features with `get_correlated_features()`
+`get_correlated_features()` will get pairs of features which have correlation above a threshold value. We can specify if we want to check only the magniture of correlation value or we also want to consider sign (positive/ negative).
+
+```{r get_correlated_features}
+get_correlated_features(df, threshold=0.7)
+```
+
+# Key Advantages
+
+-   This package is implemented with the functions to do both EDA and
+    data preprocessing.
+-   Much more light-weighted compared to most other EDA packages.
+-   Lots of flexibility and customization available.
